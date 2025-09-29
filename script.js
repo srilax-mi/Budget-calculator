@@ -100,6 +100,35 @@ if (window.location.pathname.includes("home.html")) {
     if (pieChart) pieChart.destroy();
     if (barChart) barChart.destroy();
 
+    // Pie chart (expenses)
+    let ctx1 = document.getElementById("expensePie").getContext("2d");
+    let categories = user.expense.map(e => e.type);
+    let amounts = user.expense.map(e => e.amount);
+    pieChart = new Chart(ctx1, {
+      type: "pie",
+      data: {
+        labels: categories.length ? categories : ["No Expenses"],
+        datasets: [{
+          data: amounts.length ? amounts : [1],
+          backgroundColor: ["#e74c3c","#3498db","#2ecc71","#f39c12","#9b59b6"]
+        }]
+      }
+    });
+
+    // Bar chart (income vs expense)
+    let ctx2 = document.getElementById("barChart").getContext("2d");
+    barChart = new Chart(ctx2, {
+      type: "bar",
+      data: {
+        labels: ["Income", "Expense"],
+        datasets: [{
+          label: "Amount",
+          data: [incomeTotal, expenseTotal],
+          backgroundColor: ["#2ecc71", "#e74c3c"]
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
   }
 
   // expose functions
