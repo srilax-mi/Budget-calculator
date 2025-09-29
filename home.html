@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Budget - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav>
+    <h3 id="welcome"></h3>
+    <div>
+      <button onclick="clearAll()">Clear All</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <section class="summary">
+    <div class="card">Balance: <span id="balance">0</span></div>
+    <div class="card">Total Expense: <span id="expense">0</span></div>
+  </section>
+
+  <section class="forms">
+    <div>
+      <h4>Add Income</h4>
+      <form onsubmit="addIncome(event)">
+        <input type="text" id="incomeType" placeholder="Source" required>
+        <input type="number" id="incomeAmt" placeholder="Amount" required>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+    <div>
+      <h4>Add Expense</h4>
+      <form onsubmit="addExpense(event)">
+        <input type="text" id="expenseType" placeholder="Category" required>
+        <input type="number" id="expenseAmt" placeholder="Amount" required>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="history">
+    <div>
+      <h4>Income History</h4>
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Amount</th></tr>
+        </thead>
+        <tbody id="incomeHistory"></tbody>
+      </table>
+    </div>
+    <div>
+      <h4>Expense History</h4>
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Amount</th></tr>
+        </thead>
+        <tbody id="expenseHistory"></tbody>
+      </table>
+    </div>
+  </section>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
