@@ -89,17 +89,4 @@ nav {
   text-align: center;
 }
 
-.charts {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px;
-}
-
-.charts div {
-  width: 40%;
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  height: 300px;
-}
 
